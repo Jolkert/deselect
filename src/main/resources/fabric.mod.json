@@ -1,0 +1,33 @@
+{
+	"schemaVersion": 1,
+	"id": "deselect",
+	"version": "${version}",
+	"name": "deselect",
+	"description": "Press a button to empty your hand without messing with your hotbar!",
+	"authors": [
+		"Jolkert"
+	],
+	"contact": {
+		"website": "https://jolkert.dev",
+		"repo": "https://github.com/Jolkert/deselect"
+	},
+	"license": "GPL-3.0",
+	"icon": "assets/deselect/icon.png",
+	"environment": "*",
+	"entrypoints": {
+		"client": [
+			"dev.jolkert.deselect.client.DeselectClient"
+		],
+		"main": [
+			"dev.jolkert.deselect.Deselect"
+		]
+	},
+	"mixins": [
+		"deselect.mixins.json"
+	],
+	"depends": {
+		"fabricloader": ">=${loader_version}",
+		"fabric": "*",
+		"minecraft": "${minecraft_version}"
+	}
+}
