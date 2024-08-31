@@ -17,7 +17,7 @@ public class DeselectClient implements ClientModInitializer
 			"key.deselect.deselect",
 			InputUtil.Type.KEYSYM,
 			GLFW.GLFW_KEY_Z,
-			"category.deselect.test"
+			KeyBinding.INVENTORY_CATEGORY
 	));
 
 	@Override
