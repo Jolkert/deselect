@@ -9,6 +9,7 @@ import org.spongepowered.asm.mixin.Unique;
 import org.spongepowered.asm.mixin.injection.At;
 import org.spongepowered.asm.mixin.injection.Inject;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
+import org.spongepowered.asm.mixin.injection.callback.CallbackInfoReturnable;
 
 @Mixin(PlayerInventory.class)
 public class DeselectLogicMixin implements PreviousSelectionAccess
@@ -32,9 +33,24 @@ public class DeselectLogicMixin implements PreviousSelectionAccess
 	@Inject(method = "scrollInHotbar", at = @At("HEAD"))
 	void resetSelectedStateOnScroll(double scrollAmount, CallbackInfo ci)
 	{
-		if (this.selectedSlot == Deselect.DESELECTED_SLOT_NUMBER)
+		if (this.hasHotbarDeselected())
 		{
 			this.selectedSlot = this.previousSelectedSlot;
 		}
+	}
+
+	@Inject(method = "getSwappableHotbarSlot", at = @At("HEAD"))
+	void resetSelectedStateOnPick(CallbackInfoReturnable<Integer> cir)
+	{
+		if (this.hasHotbarDeselected())
+		{
+			this.selectedSlot = this.previousSelectedSlot;
+		}
+	}
+
+	@Unique
+	private boolean hasHotbarDeselected()
+	{
+		return this.selectedSlot == Deselect.DESELECTED_SLOT_NUMBER;
 	}
 }
