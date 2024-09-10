@@ -4,4 +4,5 @@ public interface PreviousSelectionAccess
 {
 	int deselect$getPreviousSlot();
 	void deselect$setPreviousSlot(int slotValue);
+	boolean deselect$hasHotbarDeselected();
 }

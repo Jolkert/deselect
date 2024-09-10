@@ -2,7 +2,9 @@ package dev.jolkert.deselect.mixin;
 
 import dev.jolkert.deselect.Deselect;
 import dev.jolkert.deselect.access.PreviousSelectionAccess;
+import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.entity.player.PlayerInventory;
+import org.spongepowered.asm.mixin.Final;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.Shadow;
 import org.spongepowered.asm.mixin.Unique;
@@ -30,10 +32,16 @@ public class DeselectLogicMixin implements PreviousSelectionAccess
 		this.previousSelectedSlot = slot;
 	}
 
+	@Override
+	public boolean deselect$hasHotbarDeselected()
+	{
+		return this.selectedSlot == Deselect.DESELECTED_SLOT_NUMBER;
+	}
+
 	@Inject(method = "scrollInHotbar", at = @At("HEAD"))
 	void resetSelectedStateOnScroll(double scrollAmount, CallbackInfo ci)
 	{
-		if (this.hasHotbarDeselected())
+		if (this.deselect$hasHotbarDeselected())
 		{
 			this.selectedSlot = this.previousSelectedSlot;
 		}
@@ -42,15 +50,9 @@ public class DeselectLogicMixin implements PreviousSelectionAccess
 	@Inject(method = "getSwappableHotbarSlot", at = @At("HEAD"))
 	void resetSelectedStateOnPick(CallbackInfoReturnable<Integer> cir)
 	{
-		if (this.hasHotbarDeselected())
+		if (this.deselect$hasHotbarDeselected())
 		{
 			this.selectedSlot = this.previousSelectedSlot;
 		}
-	}
-
-	@Unique
-	private boolean hasHotbarDeselected()
-	{
-		return this.selectedSlot == Deselect.DESELECTED_SLOT_NUMBER;
 	}
 }
