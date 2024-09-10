@@ -17,7 +17,6 @@ import org.spongepowered.asm.mixin.injection.invoke.arg.Args;
 @Mixin(InGameHud.class)
 public abstract class BlockDeselectedRenderingMixin
 {
-	@Shadow @Final private static Identifier HOTBAR_SELECTION_TEXTURE;
 	@Shadow @Nullable protected abstract PlayerEntity getCameraPlayer();
 
 	@SuppressWarnings("DataFlowIssue") // InGameHud::renderHotbar does the null check for us -morgan 2024-09-10
