@@ -24,7 +24,7 @@ public abstract class BlockDeselectedRenderingMixin
 		method = "renderHotbar",
 		at = @At(
 			value = "INVOKE",
-			target = "Lnet/minecraft/client/gui/DrawContext;drawGuiTexture(Lnet/minecraft/util/Identifier;IIII)V",
+			target = "Lnet/minecraft/client/gui/DrawContext;drawTexture(Lnet/minecraft/util/Identifier;IIIIII)V",
 			ordinal = 1
 		)
 	)
@@ -34,8 +34,8 @@ public abstract class BlockDeselectedRenderingMixin
 
 		if (((PreviousSelectionAccess)player.getInventory()).deselect$hasHotbarDeselected())
 		{
-			args.set(3, 0); // width to 0
-			args.set(4, 0); // height to 0
+			args.set(5, 0); // width to 0
+			args.set(6, 0); // height to 0
 		}
 	}
 }
