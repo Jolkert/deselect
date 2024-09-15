@@ -4,6 +4,7 @@ import com.llamalad7.mixinextras.injector.ModifyExpressionValue;
 import dev.jolkert.deselect.Deselect;
 import dev.jolkert.deselect.access.PreviousSelectionAccess;
 import net.minecraft.entity.player.PlayerInventory;
+import net.minecraft.item.ItemStack;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.Shadow;
 import org.spongepowered.asm.mixin.Unique;
@@ -73,4 +74,14 @@ public class DeselectLogicMixin implements PreviousSelectionAccess
 			return original;
 		}
 	}
+
+	@Inject(method = "getStack", at = @At("HEAD"), cancellable = true)
+	void returnEmptyWhenDeselected(int slot, CallbackInfoReturnable<ItemStack> cir)
+	{
+		if (slot < 0)
+		{
+			cir.setReturnValue(ItemStack.EMPTY);
+		}
+	}
+
 }
