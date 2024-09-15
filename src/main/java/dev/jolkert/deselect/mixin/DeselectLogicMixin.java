@@ -1,10 +1,10 @@
 package dev.jolkert.deselect.mixin;
 
+import com.llamalad7.mixinextras.injector.ModifyExpressionValue;
 import dev.jolkert.deselect.Deselect;
 import dev.jolkert.deselect.access.PreviousSelectionAccess;
-import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.entity.player.PlayerInventory;
-import org.spongepowered.asm.mixin.Final;
+import net.minecraft.item.ItemStack;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.Shadow;
 import org.spongepowered.asm.mixin.Unique;
@@ -55,4 +55,33 @@ public class DeselectLogicMixin implements PreviousSelectionAccess
 			this.selectedSlot = this.previousSelectedSlot;
 		}
 	}
+
+	@ModifyExpressionValue(
+			method = "getBlockBreakingSpeed",
+			at = @At(
+					value = "FIELD",
+					target = "Lnet/minecraft/entity/player/PlayerInventory;selectedSlot:I"
+			)
+	)
+	int fixBlockBreakingSpeed(int original)
+	{
+		if (original == Deselect.DESELECTED_SLOT_NUMBER)
+		{
+			return this.previousSelectedSlot;
+		}
+		else
+		{
+			return original;
+		}
+	}
+
+	@Inject(method = "getStack", at = @At("HEAD"), cancellable = true)
+	void returnEmptyWhenDeselected(int slot, CallbackInfoReturnable<ItemStack> cir)
+	{
+		if (slot < 0)
+		{
+			cir.setReturnValue(ItemStack.EMPTY);
+		}
+	}
+
 }
