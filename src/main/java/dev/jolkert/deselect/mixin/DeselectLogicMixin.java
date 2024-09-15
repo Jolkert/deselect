@@ -1,5 +1,6 @@
 package dev.jolkert.deselect.mixin;
 
+import com.llamalad7.mixinextras.injector.ModifyExpressionValue;
 import dev.jolkert.deselect.Deselect;
 import dev.jolkert.deselect.access.PreviousSelectionAccess;
 import net.minecraft.entity.player.PlayerInventory;
@@ -51,6 +52,25 @@ public class DeselectLogicMixin implements PreviousSelectionAccess
 		if (this.deselect$hasHotbarDeselected())
 		{
 			this.selectedSlot = this.previousSelectedSlot;
+		}
+	}
+
+	@ModifyExpressionValue(
+			method = "getBlockBreakingSpeed",
+			at = @At(
+					value = "FIELD",
+					target = "Lnet/minecraft/entity/player/PlayerInventory;selectedSlot:I"
+			)
+	)
+	int fixBlockBreakingSpeed(int original)
+	{
+		if (original == Deselect.DESELECTED_SLOT_NUMBER)
+		{
+			return this.previousSelectedSlot;
+		}
+		else
+		{
+			return original;
 		}
 	}
 }
