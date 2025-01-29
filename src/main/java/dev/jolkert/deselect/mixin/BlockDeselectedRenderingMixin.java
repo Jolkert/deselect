@@ -20,7 +20,7 @@ public abstract class BlockDeselectedRenderingMixin
 		method = "renderHotbar",
 		at = @At(
 			value = "INVOKE",
-			target = "Lnet/minecraft/client/gui/DrawContext;drawGuiTexture(Lnet/minecraft/util/Identifier;IIII)V",
+			target = "Lnet/minecraft/client/gui/DrawContext;drawGuiTexture(Ljava/util/function/Function;Lnet/minecraft/util/Identifier;IIII)V",
 			ordinal = 1
 		)
 	)

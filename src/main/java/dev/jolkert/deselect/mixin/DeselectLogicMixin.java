@@ -38,15 +38,6 @@ public class DeselectLogicMixin implements PreviousSelectionAccess
 		return this.selectedSlot == Deselect.DESELECTED_SLOT_NUMBER;
 	}
 
-	@Inject(method = "scrollInHotbar", at = @At("HEAD"))
-	void resetSelectedStateOnScroll(double scrollAmount, CallbackInfo ci)
-	{
-		if (this.deselect$hasHotbarDeselected())
-		{
-			this.selectedSlot = this.previousSelectedSlot;
-		}
-	}
-
 	@Inject(method = "getSwappableHotbarSlot", at = @At("HEAD"))
 	void resetSelectedStateOnPick(CallbackInfoReturnable<Integer> cir)
 	{

@@ -1,17 +1,18 @@
 {
-	"required": true,
-	"minVersion": "0.8",
-	"package": "dev.jolkert.deselect.mixin",
-	"compatibilityLevel": "JAVA_17",
-	"mixins": [
-		"AcceptDeselectOnServerMixin",
-		"DeselectLogicMixin",
-		"HandSwapFixMixin"
-	],
-	"injectors": {
-		"defaultRequire": 1
-	},
-	"client": [
-		"BlockDeselectedRenderingMixin"
-	]
+  "required": true,
+  "minVersion": "0.8",
+  "package": "dev.jolkert.deselect.mixin",
+  "compatibilityLevel": "JAVA_17",
+  "mixins": [
+	"AcceptDeselectOnServerMixin",
+	"DeselectLogicMixin",
+	"HandSwapFixMixin"
+  ],
+  "injectors": {
+	"defaultRequire": 1
+  },
+  "client": [
+	"BlockDeselectedRenderingMixin",
+	"DeselectScrollingHandlerMixin"
+  ]
 }
