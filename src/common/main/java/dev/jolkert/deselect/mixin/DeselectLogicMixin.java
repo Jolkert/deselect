@@ -36,7 +36,7 @@ public class DeselectLogicMixin implements DeselectAccess
 	@Override
 	public boolean deselect$isDeselected()
 	{
-		return this.selected == Deselect.DESELECTED_VALUE;
+		return this.selected == Deselect.DESELECT_SLOT_ID;
 	}
 
 	// ok who the hell called that function `swapPaint`? that might be the worst name of all time
@@ -79,7 +79,7 @@ public class DeselectLogicMixin implements DeselectAccess
 	@Inject(method = "getItem", at = @At("HEAD"), cancellable = true)
 	void returnEmptyWhenDeselected(int slot, CallbackInfoReturnable<ItemStack> cir)
 	{
-		if (slot == Deselect.DESELECTED_VALUE)
+		if (slot == Deselect.DESELECT_SLOT_ID)
 		{
 			cir.setReturnValue(ItemStack.EMPTY);
 		}

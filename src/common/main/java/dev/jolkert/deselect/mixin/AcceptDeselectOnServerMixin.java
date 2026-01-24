@@ -21,7 +21,7 @@ public class AcceptDeselectOnServerMixin
 	)
 	int modifyCondition(int _original, ServerboundSetCarriedItemPacket packet)
 	{
-		boolean isSlotInvalid = (packet.getSlot() != Deselect.DESELECTED_VALUE
+		boolean isSlotInvalid = (packet.getSlot() != Deselect.DESELECT_SLOT_ID
 				&& packet.getSlot() < 0)
 				|| packet.getSlot() >= Inventory.getSelectionSize();
 

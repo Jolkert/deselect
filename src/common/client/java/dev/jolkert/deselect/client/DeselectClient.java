@@ -24,14 +24,14 @@ public class DeselectClient
 			assert client.player != null;
 			Inventory inventory = client.player.getInventory();
 
-			if (inventory.selected == Deselect.DESELECTED_VALUE)
+			if (((DeselectAccess)inventory).deselect$isDeselected())
 			{
 				inventory.selected = ((DeselectAccess)inventory).deselect$getPreviousSlot();
 			}
 			else
 			{
 				((DeselectAccess)inventory).deselect$setPreviousSlot(inventory.selected);
-				inventory.selected = Deselect.DESELECTED_VALUE;
+				inventory.selected = Deselect.DESELECT_SLOT_ID;
 			}
 		}
 	}
