@@ -17,7 +17,7 @@ repositories {
 	}
 
 	maven {
-		// EMI
+		// EMI & Modmenu
 		name = "TerraformersMC"
 		setUrl("https://maven.terraformersmc.com/")
 	}
@@ -31,6 +31,8 @@ cloche {
 		modId = "deselect"
 		name = "Deselect"
 		license = "GPL-3.0"
+		description = "Press a button to empty your hand without messing with your hotbar!"
+		icon = "assets/deselect/icon.png"
 
 		author("jolkert")
 	}
@@ -83,6 +85,7 @@ cloche {
 			fabricApi("0.115.2")
 			dependencies {
 				modRuntimeOnly("dev.emi:emi-fabric:${emiVersion}")
+				modRuntimeOnly("com.terraformersmc:modmenu:11.0.3")
 			}
 		}
 

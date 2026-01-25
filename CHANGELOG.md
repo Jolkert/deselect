@@ -1,3 +1,9 @@
+# Version 2.0.0
+## Additions
+- Now available on Fabric and Neoforge on 1.21.1
+## Misc.
+- Dropped support for 1.20.1 and 1.21.4
+
 # Verson 1.1.2
 ## Bugfixes
 - **Fixed:** Game crashes upon attemping to break a block in survival mode while deselected
