@@ -71,6 +71,11 @@ cloche {
 			entrypoint("main", "dev.jolkert.deselect.fabric.DeselectFabric")
 			entrypoint("client", "dev.jolkert.deselect.fabric.client.DeselectFabricClient")
 
+			dependency("minecraft", minecraftVersion.get())
+			dependency {
+				modId = "fabric"
+			}
+
 			mixins.from("src/common/deselect.mixins.json")
 		}
 
