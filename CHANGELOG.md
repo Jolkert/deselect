@@ -1,6 +1,12 @@
 # Version 2.0.0
 ## Additions
 - Now available on Fabric and Neoforge on 1.21.1
+
+## Bugfixes
+- **Fixed:** Breaking blocks with empty hand while deselected uses the properties and durability of the tool that was held
+prior to deselecting hotbar (this was an incredibly stupid issue, and i have no idea what compelled me to implement it like
+that in the first place)
+
 ## Misc.
 - Dropped support for 1.20.1 and 1.21.4
 

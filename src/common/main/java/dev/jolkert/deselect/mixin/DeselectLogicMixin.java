@@ -1,5 +1,6 @@
 package dev.jolkert.deselect.mixin;
 
+import com.llamalad7.mixinextras.injector.ModifyExpressionValue;
 import dev.jolkert.deselect.Deselect;
 import dev.jolkert.deselect.access.DeselectAccess;
 import net.minecraft.world.entity.player.Inventory;
@@ -62,6 +63,9 @@ public class DeselectLogicMixin implements DeselectAccess
 	// idk why i did it the way i did before? it just seems like it would allow you to mine with op pickaxe speed
 	// without actually using the durability of said pickaxe? unless im missing something that just seems woefully
 	// obvious and like i absolutely should not have done that
+	// -morgan 2026-01-24
+	// quickly tested, and turns out it *did* use up the durability of the tool used like that in the previous version lol
+	// still dont have a clue what compelled me to implement it like that
 	// -morgan 2026-01-24
 	@Inject(
 			method = "getDestroySpeed",
