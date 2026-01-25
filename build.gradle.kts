@@ -1,3 +1,5 @@
+import net.msrandom.minecraftcodev.runs.MinecraftRunConfiguration
+
 plugins {
 	id("earth.terrarium.cloche") version "0.17.7"
 }
@@ -60,7 +62,9 @@ cloche {
 
 		runs {
 			server()
-			client()
+			client {
+				setUsernameAndUuid()
+			}
 			data()
 		}
 	}
@@ -96,8 +100,25 @@ cloche {
 
 		runs {
 			server()
-			client()
+			client {
+				setUsernameAndUuid()
+			}
 			data()
 		}
+	}
+}
+
+fun MinecraftRunConfiguration.setUsernameAndUuid()
+{
+	val username = System.getenv("MC_USER")
+	if (!username.isNullOrBlank())
+	{
+		args("--username", username)
+	}
+
+	val uuid = System.getenv("MC_UUID")
+	if (!uuid.isNullOrBlank())
+	{
+		args("--uuid", uuid)
 	}
 }
