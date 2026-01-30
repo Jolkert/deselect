@@ -1,6 +1,5 @@
 package dev.jolkert.deselect.mixin;
 
-import com.llamalad7.mixinextras.injector.ModifyExpressionValue;
 import dev.jolkert.deselect.Deselect;
 import dev.jolkert.deselect.access.DeselectAccess;
 import net.minecraft.world.entity.player.Inventory;

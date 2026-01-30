@@ -22,11 +22,11 @@ public class HandSwapFixMixin
 	)
 	void fixSlotBeforeSwap(CallbackInfo ci)
 	{
-		var self = (Minecraft)(Object)this;
+		var self = (Minecraft) (Object) this;
 		Inventory inventory = self.player.getInventory();
-		if (((DeselectAccess)inventory).deselect$isDeselected())
+		if (((DeselectAccess) inventory).deselect$isDeselected())
 		{
-			inventory.selected = ((DeselectAccess)inventory).deselect$getPreviousSlot();
+			inventory.selected = ((DeselectAccess) inventory).deselect$getPreviousSlot();
 
 			// ive not done enough digging to understand why you dont have to manually send this packet in the actual
 			// logic for deselecting and only have to do it here, but if you dont do it here, the `ServerPlayerEntity`
