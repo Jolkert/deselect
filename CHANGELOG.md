@@ -1,6 +1,6 @@
 # Version 2.0.1
 ## Bugfixes
-- **Fixed:** (#1) Hand uses attributes of first hotbar slot for attacks and durability usage
+- **Fixed:** (#5) Hand uses attributes of first hotbar slot for attacks and durability usage
 
 # Version 2.0.0
 ## Additions
