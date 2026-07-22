@@ -12,7 +12,6 @@ import org.slf4j.LoggerFactory;
 @EventBusSubscriber(bus = EventBusSubscriber.Bus.MOD)
 public class DeselectNeoforge
 {
-	public static Logger LOGGER = LoggerFactory.getLogger("Deselect");
 	public DeselectNeoforge()
 	{
 	}

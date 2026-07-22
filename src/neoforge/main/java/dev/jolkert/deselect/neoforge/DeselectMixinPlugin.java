@@ -26,13 +26,7 @@ public class DeselectMixinPlugin implements IMixinConfigPlugin
 	@Override
 	public boolean shouldApplyMixin(String targetClassName, String mixinClassName)
 	{
-//		return ModList.get().isLoaded("create");
-		boolean createExists = LoadingModList.get().getModFileById("create") != null;
-		if (createExists)
-			DeselectNeoforge.LOGGER.info("Create exists!");
-		else
-			DeselectNeoforge.LOGGER.info("Create not real");
-		return createExists;
+        return LoadingModList.get().getModFileById("create") != null;
 	}
 
 	@Override
