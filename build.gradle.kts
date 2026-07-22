@@ -52,7 +52,8 @@ cloche {
 	}
 
 	neoforge {
-		loaderVersion = "21.1.135"
+		loaderVersion = "21.1.219"
+//		loaderVersion = "21.1.135"
 		metadata {
 			mixins.from("src/common/deselect.mixins.json")
 			mixins.from("src/neoforge/compat.deselect.mixins.json")

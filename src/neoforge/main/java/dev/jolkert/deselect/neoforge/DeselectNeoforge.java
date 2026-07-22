@@ -5,11 +5,14 @@ import net.neoforged.bus.api.SubscribeEvent;
 import net.neoforged.fml.common.EventBusSubscriber;
 import net.neoforged.fml.common.Mod;
 import net.neoforged.neoforge.client.event.RegisterKeyMappingsEvent;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 @Mod("deselect")
 @EventBusSubscriber(bus = EventBusSubscriber.Bus.MOD)
 public class DeselectNeoforge
 {
+	public static Logger LOGGER = LoggerFactory.getLogger("Deselect");
 	public DeselectNeoforge()
 	{
 	}

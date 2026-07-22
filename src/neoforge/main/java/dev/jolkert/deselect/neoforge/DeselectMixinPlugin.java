@@ -1,6 +1,7 @@
 package dev.jolkert.deselect.neoforge;
 
 import net.neoforged.fml.ModList;
+import net.neoforged.fml.loading.LoadingModList;
 import org.objectweb.asm.tree.ClassNode;
 import org.spongepowered.asm.mixin.extensibility.IMixinConfigPlugin;
 import org.spongepowered.asm.mixin.extensibility.IMixinInfo;
@@ -25,7 +26,13 @@ public class DeselectMixinPlugin implements IMixinConfigPlugin
 	@Override
 	public boolean shouldApplyMixin(String targetClassName, String mixinClassName)
 	{
-		return ModList.get().isLoaded("create");
+//		return ModList.get().isLoaded("create");
+		boolean createExists = LoadingModList.get().getModFileById("create") != null;
+		if (createExists)
+			DeselectNeoforge.LOGGER.info("Create exists!");
+		else
+			DeselectNeoforge.LOGGER.info("Create not real");
+		return createExists;
 	}
 
 	@Override
