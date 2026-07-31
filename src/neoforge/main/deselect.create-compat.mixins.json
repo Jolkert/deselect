@@ -4,11 +4,11 @@
 	"package": "dev.jolkert.deselect.mixin",
 	"compatibilityLevel": "JAVA_17",
 	"mixins": [
-		"CreateToolboxFixMixin"
 	],
 	"injectors": {
 		"defaultRequire": 1
 	},
 	"client": [
+		"CreateToolboxFixMixin"
 	]
 }
