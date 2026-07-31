@@ -3,11 +3,13 @@
 	"minVersion": "0.8",
 	"package": "dev.jolkert.deselect.mixin",
 	"compatibilityLevel": "JAVA_17",
-	"plugin": "dev.jolkert.deselect.neoforge.DeselectMixinPlugin",
 	"mixins": [
-		"CreateToolboxFixMixin"
+		"DeselectLogicMixin",
+		"ScrollFixMixin",
 	],
 	"injectors": {
 		"defaultRequire": 1
 	},
+	"client": [
+	]
 }

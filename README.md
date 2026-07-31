@@ -18,7 +18,6 @@ it over at the [Codeberg repository](https://codeberg.org/jolkert/deselect) or a
 my [Discord server](https://discord.gg/G3pqGwydVd)
 
 ## Will you support [insert version here]?
-Once 26.1 releases, I plan to begin supporting latest version while maintaining 1.21.1 support for as long as it remains
-a predominant version for modpacks
-
-That's it. That's the mod
+Plans are currently to support Fabric and Neoforge on 1.21.1 for as long as its a popular version for mods as long-term support,
+and Fabric on the latest Minecraft version. When Neoforge gets a proper non-beta release on latest version, I may consider
+supporting that as well. But no promises

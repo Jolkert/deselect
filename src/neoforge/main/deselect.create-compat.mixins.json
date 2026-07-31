@@ -4,14 +4,11 @@
 	"package": "dev.jolkert.deselect.mixin",
 	"compatibilityLevel": "JAVA_17",
 	"mixins": [
-		"AcceptDeselectOnServerMixin",
-		"DeselectLogicMixin"
+		"CreateToolboxFixMixin"
 	],
 	"injectors": {
 		"defaultRequire": 1
 	},
 	"client": [
-		"BlockSlotRenderingMixin",
-		"HandSwapFixMixin"
 	]
 }
