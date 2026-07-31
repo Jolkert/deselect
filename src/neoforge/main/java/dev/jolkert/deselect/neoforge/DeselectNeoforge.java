@@ -8,8 +8,6 @@ import net.neoforged.fml.common.Mod;
 import net.neoforged.fml.event.lifecycle.FMLClientSetupEvent;
 
 @Mod(Deselect.MOD_ID)
-// Commented because Neoforge doesnt seem to like it when @EventBusSubscriber is attached to a class that doesnt actually
-// subscribe to any events lmao -morgan 2026-07-29
  @EventBusSubscriber
 public class DeselectNeoforge
 {
