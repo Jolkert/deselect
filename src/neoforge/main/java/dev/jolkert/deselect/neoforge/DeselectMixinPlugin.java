@@ -26,7 +26,7 @@ public class DeselectMixinPlugin implements IMixinConfigPlugin
 	@Override
 	public boolean shouldApplyMixin(String targetClassName, String mixinClassName)
 	{
-        return LoadingModList.get().getModFileById("create") != null;
+		return LoadingModList.get().getModFileById("create") != null;
 	}
 
 	@Override

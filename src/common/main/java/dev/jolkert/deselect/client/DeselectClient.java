@@ -1,21 +1,20 @@
 package dev.jolkert.deselect.client;
 
-import com.mojang.blaze3d.platform.InputConstants;
 import dev.jolkert.deselect.Deselect;
 import dev.jolkert.deselect.access.DeselectAccess;
+import dev.jolkert.deselect.mixin.InventorySelectedDuck;
 import net.minecraft.client.KeyMapping;
 import net.minecraft.client.Minecraft;
 import net.minecraft.world.entity.player.Inventory;
-import org.lwjgl.glfw.GLFW;
 
 public class DeselectClient
 {
-	public static KeyMapping DESELECT_KEY = new KeyMapping(
-			"key.deselect.deselect",
-			InputConstants.Type.KEYSYM,
-			GLFW.GLFW_KEY_Z,
-			KeyMapping.CATEGORY_INVENTORY
-	);
+	public static KeyMapping DESELECT_KEY;
+
+	public static void init(KeyMapping key)
+	{
+		DeselectClient.DESELECT_KEY = key;
+	}
 
 	public static void deselectAction(Minecraft client)
 	{
@@ -26,12 +25,15 @@ public class DeselectClient
 
 			if (((DeselectAccess) inventory).deselect$isDeselected())
 			{
-				inventory.selected = ((DeselectAccess) inventory).deselect$getPreviousSlot();
+				((InventorySelectedDuck) inventory)
+					.deselect$setSelected(((DeselectAccess) inventory).deselect$getPreviousSlot());
 			}
 			else
 			{
-				((DeselectAccess) inventory).deselect$setPreviousSlot(inventory.selected);
-				inventory.selected = Deselect.DESELECT_SLOT_ID;
+				Deselect.LOGGER.info("deselecting");
+				((DeselectAccess) inventory)
+					.deselect$setPreviousSlot(((InventorySelectedDuck) inventory).deselect$getSelected());
+				((InventorySelectedDuck) inventory).deselect$setSelected(Deselect.DESELECT_SLOT_ID);
 			}
 		}
 	}
