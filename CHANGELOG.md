@@ -1,3 +1,7 @@
+# Version 2.0.2
+- **Fixed:** [#6](https://codeberg.org/jolkert/deselect/issues/6) Attemping to retreive an item from a Create toolbox
+while deselcted causes a server crash
+
 # Version 2.0.1
 ## Bugfixes
 - **Fixed:** [#5](https://codeberg.org/jolkert/deselect/commit/00fd3e0d9731b8d7f0fdaaa44ff329b78d6ad4a1) Hand uses attributes of first hotbar slot for attacks and durability usage
