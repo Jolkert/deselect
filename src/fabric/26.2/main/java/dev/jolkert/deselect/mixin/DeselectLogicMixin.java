@@ -87,4 +87,13 @@ public class DeselectLogicMixin implements DeselectAccess
 			original.call(instance, i) :
 			original.call(instance, this.deselect$getPreviousSlot());
 	}
+
+	@Inject(method = "getItem", at = @At("HEAD"), cancellable = true)
+	void returnEmptyWhenDeselected(int slot, CallbackInfoReturnable<ItemStack> cir)
+	{
+		if (slot == Deselect.DESELECT_SLOT_ID)
+		{
+			cir.setReturnValue(ItemStack.EMPTY);
+		}
+	}
 }
