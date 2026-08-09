@@ -11,7 +11,7 @@ plugins {
 }
 
 group = "dev.jolkert"
-version = "2.1.0"
+version = "2.0.3"
 
 repositories {
 	cloche.main()

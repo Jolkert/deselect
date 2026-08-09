@@ -1,6 +1,6 @@
-# Version 2.1.0
+# Version 2.0.3
 ## Additions
-- Now (finally) available on 26.2
+- Now available on Minecraft 26.2 (Fabric)
 ## Bugfixes
 - **Fixed:** [#4](https://codeberg.org/jolkert/deselect/issues/4) Removing armor from an armor stand while deselected
   causes the armor to be deleted
